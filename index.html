@@ -13,13 +13,12 @@
         const now = new Date();
         const hours = now.getHours().toString().padStart(2, '0');
         const minutes = now.getMinutes().toString().padStart(2, '0');
+        const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
         document.getElementById('clock').textContent = hours + ':' + minutes;
-        document.getElementById('date').textContent = now.getFullYear() + '年' + (now.getMonth() + 1) + '月' + now.getDate() + '日';
-        document.getElementById('weekday').textContent = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'][now.getDay()];
+        document.getElementById('date').textContent = now.getFullYear() + '-' + (now.getMonth() + 1) + '-' + now.getDate();
+        document.getElementById('weekday').textContent = weekdays[now.getDay()];
       }
-
       setInterval(updateClock, 1000);
-
       window.onload = updateClock;
     </script>
 </head>
@@ -30,8 +29,8 @@
         <header class="mb-4">
             <div id="clock" class="text-6xl font-semibold text-center mb-2">17:26</div>
             <div class="text-center text-xl">
-                <span id="date">2023年12月10日</span>
-                <span id="weekday" class="ml-4">星期日</span>
+                <span id="date">2023-12-10</span>
+                <span id="weekday" class="ml-4">Sunday</span>
             </div>
         </header>
 
@@ -46,19 +45,19 @@
 
         <main>
             <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
-                <a href="https://github.com" target="_blank" class="text-center cursor-pointer">
+                <a href="https://github.com" target="_self" class="text-center cursor-pointer">
                     <i class="fab fa-github fa-3x mb-2"></i>
                     <div>GitHub</div>
                 </a>
-                <a href="https://github.com" target="_blank" class="text-center cursor-pointer">
+                <a href="/base64/" target="_self" class="text-center cursor-pointer">
                     <i class="fab fa-codepen fa-3x mb-2"></i>
                     <div>Base64</div>
                 </a>
-                <a href="/douyin/" target="_blank" class="text-center cursor-pointer">
+                <a href="/douyin/" target="_self" class="text-center cursor-pointer">
                     <i class="fab fa-tiktok fa-3x mb-2"></i>
                     <div>DouYin</div>
                 </a>
-                <a href="/netease/" target="_blank" class="text-center cursor-pointer">
+                <a href="/netease/" target="_self" class="text-center cursor-pointer">
                     <i class="fab fa-cc-discover fa-3x mb-2"></i>
                     <div>Netease</div>
                 </a>

@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.3/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="/baidu/tongji.js"></script>
+    <script>
+      function updateClock() {
+        const now = new Date();
+        const hours = now.getHours().toString().padStart(2, '0');
+        const minutes = now.getMinutes().toString().padStart(2, '0');
+        document.getElementById('clock').textContent = hours + ':' + minutes;
+        document.getElementById('date').textContent = now.getFullYear() + '年' + (now.getMonth() + 1) + '月' + now.getDate() + '日';
+        document.getElementById('weekday').textContent = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'][now.getDay()];
+      }
+
+      setInterval(updateClock, 1000);
+
+      window.onload = updateClock;
+    </script>
+</head>
+<body>
+
+<div class="antialiased bg-gray-100 text-gray-900">
+    <div class="container mx-auto px-4 py-10">
+        <header class="mb-4">
+            <div id="clock" class="text-6xl font-semibold text-center mb-2">17:26</div>
+            <div class="text-center text-xl">
+                <span id="date">2023年12月10日</span>
+                <span id="weekday" class="ml-4">星期日</span>
+            </div>
+        </header>
+
+        <div class="mb-8 my-10 h-24">
+            <form class="w-full h-full flex justify-center" action="https://www.bing.com/search" method="GET">
+                <input type="text" name="q" placeholder="Search..." class="w-80 border-2 border-gray-300 bg-white h-12 px-5 pr-16 rounded-lg text-sm focus:outline-none">
+                <button type="submit" class="text-white bg-gray-800 rounded-full mt-1 h-10 w-10 flex items-center justify-center ml-2">
+                    <i class="fas fa-search"></i>
+                </button>
+            </form>
+        </div>
+
+        <main>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                <a href="https://github.com" target="_blank" class="text-center cursor-pointer">
+                    <i class="fab fa-github fa-3x mb-2"></i>
+                    <div>GitHub</div>
+                </a>
+                <a href="https://github.com" target="_blank" class="text-center cursor-pointer">
+                    <i class="fab fa-codepen fa-3x mb-2"></i>
+                    <div>Base64</div>
+                </a>
+                <a href="/douyin/" target="_blank" class="text-center cursor-pointer">
+                    <i class="fab fa-tiktok fa-3x mb-2"></i>
+                    <div>DouYin</div>
+                </a>
+                <a href="/netease/" target="_blank" class="text-center cursor-pointer">
+                    <i class="fab fa-cc-discover fa-3x mb-2"></i>
+                    <div>Netease</div>
+                </a>
+            </div>
+        </main>
+    </div>
+</div>
+</body>
+</html>

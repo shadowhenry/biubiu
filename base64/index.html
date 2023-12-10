@@ -1,0 +1,127 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Base64 Encode/Decode Tool</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.3/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+        }
+        .tb {
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+            box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+            -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+            -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+            transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+        }
+        .tb:focus {
+            border: 1px solid #2e6da4;
+        }
+        .stb {
+            background-color: #337ab7;
+            border-color: #2e6da4;
+            border-radius: 4px;
+        }
+        .stb:hover {
+            background-color: #375F8C;
+            border-color: #2e6da4;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 p-8 flex items-center justify-center h-screen">
+    <div class="container mx-auto px-4 py-8">
+        <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+            <div class="mb-4">
+                <h1 class="block text-gray-700 text-xl font-bold mb-2">
+                    <a href="https://biubiu.dev/" style="text-decoration: none;">Base64 Encode/Decode Tool</a>
+                </h1>
+            </div>
+            <div class="mb-6">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="inputText">
+                    Base64 Input
+                </label>
+                <textarea id="inputText" class="tb appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" rows="6"></textarea>
+            </div>
+            <div class="mb-6">
+                <button id="encodeBtn" class="stb bg-blue-500 text-white py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">Encode</button>
+                <button id="decodeBtn" class="stb bg-blue-500 text-white py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">Decode</button>
+            </div>
+            <div class="mb-6">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="outputText">
+                    Base64 Output
+                </label>
+                <textarea id="outputText" class="tb shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" rows="6" readonly></textarea>
+            </div>
+            <div class="mb-6">
+                <label class="inline-flex items-center">
+                    <input type="checkbox" class="form-checkbox" id="autoCopy">
+                    <span class="ml-2">Auto copy to clipboard</span>
+                </label>
+            </div>
+            <div class="mb-6">
+                <span class="text-base block mb-4">You can also choose an image file to obtain its Base64 encoded DataURI format：</span>
+                <label for="fileInput" class="stb relative cursor-pointer text-white rounded-md p-2 text-center transition duration-300">
+                  <span class="text-base leading-6 font-medium">Choose File</span>
+                  <input id="fileInput" type="file" accept="image/*" class="hidden" />
+                </label>
+            </div>
+            <footer class="text-gray-700">
+                <p>Code by <span class="font-bold"><a href="https://picoapps.xyz/">@Pico</a></span></p>
+            </footer>
+        </div>
+    </div>
+    <script src="/baidu/tongji.js"></script>
+    <script>
+        const encodeBtn = document.getElementById('encodeBtn');
+        const decodeBtn = document.getElementById('decodeBtn');
+        const inputText = document.getElementById('inputText');
+        const outputText = document.getElementById('outputText');
+        const autoCopyCheckbox = document.getElementById('autoCopy');
+        const imageInput = document.getElementById('fileInput');
+
+        encodeBtn.addEventListener('click', function() {
+            try {
+                outputText.value = btoa(inputText.value);
+                if (autoCopyCheckbox.checked) {
+                    navigator.clipboard.writeText(outputText.value);
+                }
+            } catch (e) {
+                outputText.value = e.message;
+            }
+        });
+
+        decodeBtn.addEventListener('click', function() {
+            try {
+                outputText.value = atob(inputText.value);
+                if (autoCopyCheckbox.checked) {
+                    navigator.clipboard.writeText(outputText.value);
+                }
+            } catch (e) {
+                outputText.value = e.message;
+            }
+        });
+
+        imageInput.addEventListener('change', function (e) {
+            if (typeof FileReader === 'undefined') {
+                outputText.value = "Your broswer doesn't support FileReader, Please Chang.";
+            } else {
+                var FR = new FileReader();
+                FR.readAsDataURL(e.target.files[0]);
+                FR.onload = function (e) {
+                  outputText.value = this.result;
+                  if (autoCopyCheckbox.checked) {
+                    navigator.clipboard.writeText(outputText.value);
+                  }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

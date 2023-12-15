@@ -1,0 +1,99 @@
+<html>
+    <meta charset=utf-8>
+    <meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1">
+    <title>
+        随机密码生成器_在线随机密码生成 - 站长工具
+    </title>
+    <meta name=keywords content=随机密码生成器，密码生成器，在线密码生成>
+    <meta name=description content=随机密码生成器是站长工具新推出的在线密码生成工具，可以根据字母、数字、符号随机生成用户想要的密码，帮助用户完美解决密码难题。>
+    <meta content="always" name="referrer">
+    <link rel="stylesheet" href="/randcode/randcode.css" type="text/css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.8/clipboard.min.js" crossorigin="anonymous"></script>
+    <script src="/baidu/tongji.js"></script>
+    <script src="/randcode/randcode.js"></script>
+    </head>
+    <body class=pularge>
+        <div class="Tool-MainWrap wrapper mb10">
+
+            
+            <div class=RndPsdBox>
+                <div class="RndPsdtit plr20">
+                    <h2>
+                        <a href="https://biubiu.dev/" style="text-decoration: none;">
+                            <span class="label label-success label-site">
+                                随机密码生成器
+                            </span>
+                        </a>
+                    </h2>
+                    <p>
+                        <i class="iconfont iconyijianfankui1">
+                        </i>
+                        &nbsp;本系统不会记录您的随机密码，请您妥善保存。
+                    </p>
+                </div>
+                <div class="RndPsdContent plr20 ptb15">
+                    <div class=RndPsdInpt>
+                        <label>
+                            密码长度：
+                        </label>
+                        <div style=position:relative class=spinner>
+                            <input type="number" class="psdlen value" maxlength="2"  value=10>
+                        </div>
+                    </div>
+                    <div class=RndPsdInpt>
+                        <label>
+                            所用字符：
+                        </label>
+                        <input type="text" class=usestr js-do=usestr maxlength=61 value=0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ>
+                    </div>
+                    <div class=RndPsdInpt id=checkbox>
+                        <div class=checkText>
+                            <label>
+                                所含字符：
+                            </label>
+                            <input type=checkbox class=checkbix data-text=number_array 
+                            checked>
+                            <em class=strTxt>
+                                数字 0-9
+                            </em>
+                            <input type=checkbox class=checkbix data-text=letter_lowercase_array 
+                            checked>
+                            <em class=strTxt>
+                                小写字母 a-z
+                            </em>
+
+                            <input type=checkbox class=checkbix data-text=letter_capital_array 
+                            checked>
+                            <em class=strTxt>
+                                大写字母 A-Z
+                            </em>
+
+                            <input type=checkbox class=checkbix data-text=special_char_array >
+                            <em class=strTxt>
+                                常用符号 ~!@#$%^&amp;*()_+
+                            </em>
+                        </div>
+                    </div>
+                    <a href=javascript:void(0) class=generate_pw js-do=generate_pw>
+                        生成密码
+                    </a>
+                </div>
+            </div>
+            <div class="RndPsdBox bor-t1s04">
+                <div class="RndPsdContent pl20 ptb15 clearfix">
+                    <label class=RndResult>
+                        生成结果
+                    </label>
+                    <label class=RndResultInpt>
+                        <input type=text class=RndResultTxt disabled value=PvYBo7nGiF>
+                        <a href=javascript:void(0) id=copy class="Rndcopy focus" js-do=copy>
+                            复制
+                        </a>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </body>
+
+</html>

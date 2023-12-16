@@ -11,10 +11,10 @@ $(document).ready(function() {
 
         var randomString = generateRandomString(len, data.text)
         $('.RndResultTxt').val(randomString);
+        $('.RndResultTxt').css('color', 'black');
     });
 
     function generateRandomString(length, text) {
-      // var characters = "1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ~!@#$%^&*()_+";
       var characters = text;
       var result = "";
 
@@ -38,7 +38,6 @@ $(document).ready(function() {
 
     function modifyString() {
       var str = $('.usestr').val().trim();
-      // var str = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ~!@#$%^&*()_+";
       var checkboxes = document.getElementsByClassName("checkbix");
 
       for (var i = 0; i < checkboxes.length; i++) {
@@ -98,10 +97,12 @@ $(document).ready(function() {
 
         clipboard.on('success', function(e) {
             console.log('复制成功:', e.text);
+            $('.RndResultTxt').css('color', 'green');
         });
 
         clipboard.on('error', function(e) {
             console.error('复制失败:', e.text);
+            $('.RndResultTxt').css('color', 'black');
         });
 
 

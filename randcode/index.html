@@ -7,7 +7,7 @@
     <meta name=keywords content=随机密码生成器，密码生成器，在线密码生成>
     <meta name=description content=随机密码生成器是站长工具新推出的在线密码生成工具，可以根据字母、数字、符号随机生成用户想要的密码，帮助用户完美解决密码难题。>
     <meta content="always" name="referrer">
-    <link rel="stylesheet" href="/randcode/randcode.css" type="text/css">
+    <link rel="stylesheet" href="/randcode/randcode.css?v=33" type="text/css">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.8/clipboard.min.js" crossorigin="anonymous"></script>
     <script src="/baidu/tongji.js"></script>
@@ -15,8 +15,6 @@
     </head>
     <body class=pularge>
         <div class="Tool-MainWrap wrapper mb10">
-
-            
             <div class=RndPsdBox>
                 <div class="RndPsdtit plr20">
                     <h2>
@@ -45,7 +43,7 @@
                         <label>
                             所用字符：
                         </label>
-                        <input type="text" class=usestr js-do=usestr maxlength=61 value=0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ>
+                        <input type="text" class=usestr js-do=usestr maxlength=61 value='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ~!@#$%^&*()_+'>
                     </div>
                     <div class=RndPsdInpt id=checkbox>
                         <div class=checkText>
@@ -69,7 +67,7 @@
                                 大写字母 A-Z
                             </em>
 
-                            <input type=checkbox class=checkbix data-text=special_char_array >
+                            <input type=checkbox class=checkbix data-text=special_char_array checked>
                             <em class=strTxt>
                                 常用符号 ~!@#$%^&amp;*()_+
                             </em>

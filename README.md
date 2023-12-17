@@ -1,10 +1,8 @@
-<div align="center">
+BiuBiu
+======
 
-	<h1 align="center">BiuBiu Nav/h1>
+A Simple Html Page to Set Personal DashBoard.
 
-	A Simple Html Page to Set Personal DashBoard.
+一个简单的个人导航页应用。
 
-	一个简单的个人导航页应用。
-
-	<img src="/images/exam.jpeg" alt="example">
-</div>
+![image](/images/exam.jpeg)
